@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(function(){
+            $("#test").on("click", function(){
+                console.log("Nasz event")
+            });
+            
+            $("#test").click(function(){
+                console.log("nasz Event 2")
+            })
+
+            $("#kwadrat").click(function(){
+                alert("witaj")
+            })
+
+            $("#przywitaj").on("click", function(){
+                $("#komuniat").prepend().text("CZESC");
+            })
+
+            $("#kwadrat").on("click", function(){
+                $("#kwadrat").css("background-color","red");
+            })
+
+            $("#reset").on("click", function(){
+                $("#kwadrat").css("background-color","gray");
+            })
+            
+            let licznik = 0;
+            $("#kwadrat").click(function(){
+                licznik++;
+                $("p").text("kliknięto" + licznik)
+            })
+        })
+    </script>
+    <style>
+    #kwadrat { width: 150px; height: 150px; background: lightgray; }
+  </style>
+</head>
+<body>
+    <div id="container">
+        <button id="test">Test</button>
+        <button id="reset">reset</button>
+
+         <div id="kwadrat"></div>
+    </div>
+</body>
+</html>
