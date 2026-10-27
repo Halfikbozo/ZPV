@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wprowadzenie</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+           $("#rozmiar").on("change", function(){
+                let wartosc = $("#rozmiar").val();
+                $("#tekst").text("Aktualny rozmiar: " + wartosc + "px").css("font-size", wartosc + "px")
+           })
+        })
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <select id="rozmiar">
+    <option value="14">Mały</option>
+    <option value="20">Średni</option>
+    <option value="28">Duży</option>
+    </select>
+    <p id="tekst">Przykładowy tekst akapitu.</p>
+</body>
+</html>

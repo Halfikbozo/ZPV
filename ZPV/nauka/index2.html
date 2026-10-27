@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wprowadzenie</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#haslo").on("input", function(){
+                let dlugosc = $("#haslo").val().length;
+                $("#sila").removeClass("slabe srednie silne");
+                if(dlugosc < 6){
+                    $("#sila").text("slabe").addClass("slabe")
+                } else if(dlugosc >= 6 && dlugosc <= 9){
+                    $("#sila").text("srednie").addClass("srednie")
+                } else {
+                    $("#sila").text("silne").addClass("silne")
+                }
+            })
+        })
+    </script>
+    <style>
+    .slabe { background-color: red; }
+    .srednie { background-color: orange; }
+    .silne { background-color: lightgreen; }
+    </style>
+</head>
+<body>
+    <input type="password" id="haslo">
+    <p id="sila"></p>
+</body>
+</html>

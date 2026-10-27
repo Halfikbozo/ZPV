@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wprowadzenie</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#licz").click(function(){
+                let waga = Number($("#waga").val().trim());
+                let wzrost = Number($("#wzrost").val().trim());
+                if (waga == "" || wzrost == ""){
+                    $("#bmi").text("nie podano parametrów").css("color", "red")
+                } else if(waga < 20 || waga > 300) {
+                    $("#bmi").text("nie poprawne parametry").css("color", "red")
+                } else if(wzrost < 100 || wzrost > 250){
+                    $("#bmi").text("nie poprawne parametry").css("color", "red")
+                } else {
+                    $("#bmi").text("Twoje bmi to: " + (waga / ((wzrost/100)**2).toFixed(1))).css("color", "green")
+                }
+            })
+        })
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" id="waga" placeholder="Waga (kg)">
+    <input type="text" id="wzrost" placeholder="Wzrost (cm)">
+    <button id="licz">Oblicz</button>
+    <p id="bmi"></p>
+</body>
+</html>

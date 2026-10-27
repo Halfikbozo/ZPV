@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wprowadzenie</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#szukaj").on("keydown", function(e){
+                if(e.key === "Enter"){
+                    let fraza = $("#szukaj").val().trim();
+                    if(fraza == ""){
+                        $("#wynik").text("Wpisz frazę").css("color", "red")
+                    } else {
+                        $("#wynik").text("Szukam: " + fraza)
+                    }
+                }
+                if(e.key === "Escape"){
+                    $("#szukaj").val("")
+                    $("#wynik").text("")
+                }
+            })
+        })
+    </script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="text" id="szukaj" placeholder="Szukaj...">
+    <p id="wynik"></p>
+</body>
+</html>
